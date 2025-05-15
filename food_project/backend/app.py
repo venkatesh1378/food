@@ -13,16 +13,15 @@ with open('online_food_deliverys.pkl', 'rb') as f:
 # Mapping dictionary
 my_dictionary = {
     'male': 1, 'female': 0,
-    'single': 2, 'married': 0, 'prefer not to say': 1,
-    'student': 3, 'employee': 0, 'self employeed': 2, 'house wife': 1,
+    'single': 2,  'married': 0,  'prefer not to say': 1,
+    'Student': 3, 'Employee': 0, 'Self Employed': 2, 'House wife': 1,
     'no income': 4, '25001 to 50000': 1, 'more than 50000': 3,
     '10001 to 25000': 0, 'below rs.10000': 2,
-    'graduate': 0, 'post graduate': 2, 'ph.d': 1,
+    'Graduate': 0, 'Post Graduate': 2, 'Ph.D': 1,'school': 3,'uneducated': 4,
     'school': 3, 'uneducated': 4,
     'yes': 1, 'no': 0,
     'positive': 1, 'negative': 0
 }
-
 def salary_converter(my_sal):
     try:
         sal = int(my_sal)
@@ -42,10 +41,10 @@ def predict():
         processed = [
             int(data['age']),
             my_dictionary[data['gender'].lower()],
-            my_dictionary[data['marital_status'].lower()],
+            my_dictionary[data['marital_status']],
             my_dictionary[data['occupation'].lower()],
             salary_converter(data['monthly_income']),
-            my_dictionary[data['education'].lower()],
+            my_dictionary[data['education']],
             int(data['family_size']),
            
             my_dictionary[data['output'].lower()]
