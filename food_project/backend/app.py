@@ -7,7 +7,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load model
-with open('online_food_delivery.pkl', 'rb') as f:
+with open('online_food_deliverys.pkl', 'rb') as f:
     classifier = pickle.load(f)
 
 # Mapping dictionary
