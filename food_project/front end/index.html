@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodExpress Feedback Analyzer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section class="hero-section">
+        <div class="container hero-content">
+            <h1>Help Us Serve You Better!<br>Share Your Food Journey</h1>
+        </div>
+    </section>
+    <section class="project-description">
+        <div class="container">
+            <div class="description-box">
+                <h2>About Food Delivery Feedback System</h2>
+                <p class="description-text "><br> Our Ai-powered feeback analysis app helps food delivery platforms to understand the customer satisifaction and By analyzing various demographic and behavioral factors, we provide actionable insights to improve service quality. based
+                    on the insights and patterns provided by us. they can quickly understand about user behaviour and satisifaction level. and they can make the more profit by it by imporving their services.
+                </p>
+
+                <button class="predict-button insights-button" onclick="toggleInsights()">
+                    <i class="fas fa-chart-pie"></i> Show Insights
+                </button>
+
+                <div class="insights-section" id="insightsContent">
+                    <h3>Key Findings from Feedback Data</h3>
+                    <div class="key-features">
+                        <div class="feature-card">
+                            <i class="fas fa-smile"></i>
+                            <h4><b>34.02% </b> &nbsp;singles males & <b>26.03% </b> &nbsp;females</h4>
+                            <p>majority of the singles are ordering online food ang giving the positive feed back </p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-clock"></i>
+                            <h4><strong>41.75%</strong>&nbsp;are students</h4>
+                            <p>Students with no income are ordering the online food and giving the positive feedback</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-clock"></i>
+                            <h4><b>21.90%</b>&nbsp; male graduates</h4>
+                            <p>graduated males are ordering the food mostly and giving good responses.</p>
+                        </div>
+                        <div class="feature-card">
+                            <i class="fas fa-clock"></i>
+                            <h4><b>12.11%</b> &nbsp;are single males with no-income</h4>
+                            <p>single males without income who completed their graduation are mostly ordering the food and giving the good feeback.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="key-features">
+                    <div class="feature-card-1">
+                        <i class="fas fa-brain"></i>
+                        <h4>AI-Powered Analysis</h4>
+                        <p>Machine learning models trained on feedback samples</p>
+                    </div>
+                    <div class="feature-card-1">
+                        <i class="fas fa-shield-alt"></i>
+                        <h4>Secure & Private</h4>
+                        <p>All data is anonymized and encrypted for your protection</p>
+                    </div>
+                    <div class="feature-card-1">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Mobile-Optimized</h4>
+                        <p>Responsive design works perfectly on all devices</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="feedback-section">
+        <h2 class="section-title">FILL THE FORM & GET THE FEEDBACK</h2>
+        <div class="form-container">
+            <form id="feedbackForm" onsubmit="event.preventDefault(); predict()">
+                <!-- Personal Information -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label><i class="fas fa-user"></i> Age</label>
+                        <input type="number" id="age" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-venus-mars"></i> Gender</label>
+                        <select id="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="prefer not to say">prefer not to say</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Education & Occupation -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label><i class="fas fa-graduation-cap"></i> Education</label>
+                        <select id="education" required>
+                            <option value="">Select Education</option>
+                            <option value="graduate">Graduate</option>
+                            <option value="post graduate">Post Graduate</option>
+                            <option value="ph.d">PhD</option>
+                            <option value="school">School</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-briefcase"></i> Occupation</label>
+                        <select id="occupation" required>
+                            <option value="">Select Occupation</option>
+                            <option value="student">Student</option>
+                            <option value="employee">Employee</option>
+                            <option value="self employeed">Self Employed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Financial & Family -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label><i class="fas fa-rupee-sign"></i> Monthly Income</label>
+                        <input type="number" id="monthly_income" required>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-users"></i> Family Size</label>
+                        <input type="number" id="family_size" required>
+                    </div>
+                </div>
+
+                <!-- Order Experience -->
+                <div class="form-row">
+                    <div class="input-group">
+                        <label><i class="fas fa-heart"></i> Marital Status</label>
+                        <select id="marital_status" required>
+                            <option value="">Select Marital Status</option>
+                            <option value="single">Single</option>
+                            <option value="married">Married</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label><i class="fas fa-redo"></i> Ordered Again?</label>
+                        <select id="output" required>
+                            <option value="">Select Option</option>
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="predict-button">
+                    <i class="fas fa-magic"></i> Generate Feedback Analysis
+                </button>
+
+                <div id="result" class="result-container"></div>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function toggleInsights() {
+            const insightsContent = document.getElementById('insightsContent');
+            const button = document.querySelector('.insights-button');
+
+            if (insightsContent.style.display === 'none' || !insightsContent.style.display) {
+                insightsContent.style.display = 'block';
+                button.innerHTML = '<i class="fas fa-times"></i> Hide Insights';
+            } else {
+                insightsContent.style.display = 'none';
+                button.innerHTML = '<i class="fas fa-chart-pie"></i> Show Insights';
+            }
+        }
+        // Enhanced Form Validation
+        function validateForm() {
+            let isValid = true;
+            const fields = [
+                'age', 'gender', 'education', 'occupation',
+                'monthly_income', 'family_size', 'marital_status', 'output'
+            ];
+
+            fields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                if (!field.value) {
+                    field.style.borderColor = '#ff4444';
+                    isValid = false;
+                } else {
+                    field.style.borderColor = '#eee';
+                }
+            });
+
+            return isValid;
+        }
+
+        // Prediction Function
+        async function predict() {
+            if (!validateForm()) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            const data = {
+                age: document.getElementById('age').value,
+                gender: document.getElementById('gender').value,
+                marital_status: document.getElementById('marital_status').value,
+                occupation: document.getElementById('occupation').value,
+                monthly_income: document.getElementById('monthly_income').value,
+                education: document.getElementById('education').value,
+                family_size: document.getElementById('family_size').value,
+                output: document.getElementById('output').value
+            };
+
+            const resultContainer = document.getElementById('result');
+
+            try {
+                // Show loading state
+                resultContainer.innerHTML = 'Analyzing your feedback...';
+                resultContainer.className = 'result-container';
+                resultContainer.style.display = 'block';
+
+                const response = await fetch('https://food-project-3m01.onrender.com/predict', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const responseData = await response.json();
+
+                if (responseData.error) {
+                    resultContainer.className = 'result-container negative';
+                    resultContainer.innerHTML = `Error: ${responseData.error}`;
+                } else {
+                    resultContainer.className = `result-container ${responseData.result === 'POSITIVE' ? 'positive' : 'negative'}`;
+                    resultContainer.innerHTML = `
+                        <h3>${responseData.result === 'POSITIVE' ? '🎉 Excellent Experience!' : '⚠️ Needs Improvement'}</h3>
+                        <p>${responseData.result === 'POSITIVE' 
+                            ? 'Thank you for your positive feedback! We\'re thrilled you enjoyed our service!' 
+                            : 'We sincerely apologize for the inconvenience. Your feedback helps us improve!'}
+                        </p>
+                        <p><small>Analysis ID: ${Math.random().toString(36).substr(2, 9).toUpperCase()}</small></p>
+                    `;
+                }
+            } catch (error) {
+                resultContainer.className = 'result-container negative';
+                resultContainer.innerHTML = '⚠️ Connection Error: Please try again later';
+            }
+        }
+
+        // Real-time Validation
+        document.querySelectorAll('input, select').forEach(element => {
+            element.addEventListener('input', () => {
+                if (element.value) {
+                    element.style.borderColor = '#eee';
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
